@@ -2,7 +2,12 @@
 
 [![NPM Version](https://img.shields.io/npm/v/%40reunmedia%2Feslint-config)](https://www.npmjs.com/package/@reunmedia/eslint-config)
 
-TODO - Add description
+Reun Media [typescript-eslint](https://typescript-eslint.io/) configuration with optional support for [Vue](#vue).
+
+> [!NOTE]
+>
+> This config assumes that [Prettier](https://prettier.io/) is used for
+> formatting.
 
 ## Installation
 
@@ -52,11 +57,3 @@ export default tseslint.config(await createConfig(import.meta.url), {
   },
 });
 ```
-
-## FAQ
-
-### Why is the first version 1.5.0?
-
-This package is based on the last version of [ESLint config in Reun Media
-Project
-Templates](https://github.com/ReunMedia/project-templates/blob/main/base/webdev/frontend/eslint.config.mjs).

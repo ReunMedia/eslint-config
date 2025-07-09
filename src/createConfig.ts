@@ -1,16 +1,3 @@
-// @ts-check
-
-/**
- * Reun Media typescript-eslint configuration
- *
- * @author Reun Media <company@reun.eu>
- * @copyright 2024 Reun Media
- *
- * @see https://github.com/ReunMedia/project-templates
- *
- * @version 1.5.0
- */
-
 import eslint from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
 import tseslint from "typescript-eslint";
@@ -18,6 +5,12 @@ import { fileURLToPath } from "node:url";
 import { includeIgnoreFile } from "@eslint/compat";
 import path from "node:path";
 
+/**
+ * Create Reun Media ESLint configuration object
+ *
+ * @param rootImportMetaUrl Pass `import.meta.url` here. Used to determine
+ *                          `.gitignore` location.
+ */
 export default async function createConfig(rootImportMetaUrl: string) {
   // Base configs
   let configs: Parameters<typeof tseslint.config>[0] = [

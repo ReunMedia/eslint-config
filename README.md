@@ -4,15 +4,13 @@
 
 TODO - Add description
 
-## Getting Started
-
-### Install package
+## Installation
 
 ```sh
 pnpm add -D eslint typescript-eslint @reunmedia/eslint-config
 ```
 
-### Use configuration
+## Usage
 
 ```mjs
 // eslint.config.mjs
@@ -23,7 +21,7 @@ import createReunMediaConfig from "@reunmedia/eslint-config";
 export default tseslint.config(await createReunMediaConfig(import.meta.url));
 ```
 
-## Additionall configuration
+## Additional configuration
 
 ### Vue
 

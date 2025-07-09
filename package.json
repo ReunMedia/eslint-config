@@ -1,0 +1,21 @@
+{
+  "name": "@reunmedia/eslint-config",
+  "version": "1.4.0",
+  "description": "Reun Media ESLint configuration",
+  "homepage": "https://github.com/ReunMedia/eslint-config",
+  "module": "index.ts",
+  "license": "MIT",
+  "type": "module",
+  "author": "Reun Media <company@reun.eu> (https://reun.eu)",
+  "private": true,
+  "files": [
+    "src",
+    "CHANGELOG.md"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

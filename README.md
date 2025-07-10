@@ -57,3 +57,7 @@ export default tseslint.config(await createConfig(import.meta.url), {
   },
 });
 ```
+
+## Development
+
+See [docs/development.md](./docs/development.md).

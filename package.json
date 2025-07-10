@@ -25,7 +25,8 @@
   "scripts": {
     "build": "del-cli dist/* && tsc",
     "lint": "concurrently -p command \"npmPkgJsonLint .\" \"prettier . --check\" \"bun --bun eslint\"",
-    "prepack": "bun run lint && bun run build"
+    "prepack": "bun run lint && bun run build",
+    "update-test-fixture": "bun run ./scripts/update-test-fixture.ts"
   },
   "dependencies": {
     "@eslint/compat": "^1.3.1",

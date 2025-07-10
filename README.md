@@ -2,7 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/%40reunmedia%2Feslint-config)](https://www.npmjs.com/package/@reunmedia/eslint-config)
 
-Reun Media [typescript-eslint](https://typescript-eslint.io/) configuration with optional support for [Vue](#vue).
+Reun Media [typescript-eslint](https://typescript-eslint.io/) configuration with optional support for [Vue and Astro](#vue-and-astro).
 
 > [!NOTE]
 >
@@ -28,14 +28,20 @@ export default tseslint.config(await createReunMediaConfig(import.meta.url));
 
 ## Additional configuration
 
-### Vue
+### Vue and Astro
 
-Vue is automatically configured if
-[`eslint-plugin-vue`](https://eslint.vuejs.org/) is installed. Just add it to
-enable Vue rules and configuration.
+Vue and Astro are automatically configured when either
+[`eslint-plugin-vue`](https://eslint.vuejs.org/) or
+[`eslint-plugin-astro`](https://ota-meshi.github.io/eslint-plugin-astro/) is
+installed. Just add them individually or together to enable rules and
+configuration.
 
 ```sh
+# Enables Vue configuration
 pnpm add -D eslint-plugin-vue
+
+# Enables Astro configuration
+pnpm add -D eslint-plugin-astro
 ```
 
 ### Browser globals

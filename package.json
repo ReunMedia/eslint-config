@@ -23,9 +23,9 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "build": "del-cli dist/* && tsc",
+    "build": "bun run lint && bun test && del-cli dist/* && tsc",
     "lint": "concurrently -p command \"npmPkgJsonLint .\" \"prettier . --check\" \"bun --bun eslint\"",
-    "prepack": "bun run lint && bun run build",
+    "prepack": "bun run build",
     "update-test-fixture": "bun run ./scripts/update-test-fixture.ts"
   },
   "dependencies": {

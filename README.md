@@ -15,19 +15,6 @@ Reun Media [typescript-eslint](https://typescript-eslint.io/) configuration with
 pnpm add -D eslint typescript-eslint @reunmedia/eslint-config
 ```
 
-## Usage
-
-```mjs
-// eslint.config.mjs
-// @ts-check
-import tseslint from "typescript-eslint";
-import createReunMediaConfig from "@reunmedia/eslint-config";
-
-export default tseslint.config(await createReunMediaConfig(import.meta.url));
-```
-
-## Additional configuration
-
 ### Vue and Astro
 
 Vue and Astro are automatically configured when either
@@ -43,6 +30,19 @@ pnpm add -D eslint-plugin-vue
 # Enables Astro configuration
 pnpm add -D eslint-plugin-astro
 ```
+
+## Usage
+
+```mjs
+// eslint.config.mjs
+// @ts-check
+import tseslint from "typescript-eslint";
+import createReunMediaConfig from "@reunmedia/eslint-config";
+
+export default tseslint.config(await createReunMediaConfig(import.meta.url));
+```
+
+## Additional configuration
 
 ### Browser globals
 
@@ -63,6 +63,24 @@ export default tseslint.config(await createConfig(import.meta.url), {
   },
 });
 ```
+
+## Troubleshooting
+
+### ESLint works in terminal but not in VS Code
+
+If you're using `pnpm` and [VS Code ESLint
+extension](https://github.com/microsoft/vscode-eslint), you might need add
+following configuration to `pnpm-workspace.yaml`:
+
+```yaml
+# pnpm-workspace.yaml
+publicHoistPattern:
+  - "*eslint*"
+```
+
+Then apply changes with `pnpm install` and reload VS Code. See [this
+issue](https://github.com/microsoft/vscode-eslint/issues/1986) for more
+information.
 
 ## Development
 

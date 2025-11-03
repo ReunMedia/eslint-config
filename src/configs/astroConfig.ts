@@ -20,8 +20,7 @@ export const createAstroConfig = async (): Promise<Config[]> => {
   try {
     const pluginAstro = await import("eslint-plugin-astro");
     return [...pluginAstro.configs.recommended, ...astroConfig];
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (e) {
+  } catch (_e) {
     return [];
   }
 };

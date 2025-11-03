@@ -42,10 +42,9 @@ pnpm add -D eslint-plugin-astro
 ```mjs
 // eslint.config.mjs
 // @ts-check
-import tseslint from "typescript-eslint";
-import createReunMediaConfig from "@reunmedia/eslint-config";
+import { defineConfig } from "eslint/config";
 
-export default tseslint.config(await createReunMediaConfig(import.meta.url));
+export default defineConfig(await createConfig(import.meta.url));
 ```
 
 ### Importing individual configurations
@@ -56,10 +55,10 @@ import individual configurations manually.
 ```mjs
 // eslint.config.mjs
 // @ts-check
-import tseslint from "typescript-eslint";
+import { defineConfig } from "eslint/config";
 import { reunCustomConfig, vueConfig } from "@reunmedia/eslint-config";
 
-export default tseslint.config(vueConfig, reunCustomConfig);
+export default defineConfig(vueConfig, reunCustomConfig);
 ```
 
 Manual import may be needed when working with transitive dependencies. E.g. if
@@ -78,7 +77,7 @@ pnpm add -D globals
 ```
 
 ```ts
-export default tseslint.config(await createConfig(import.meta.url), {
+export default defineConfig(await createConfig(import.meta.url), {
   languageOptions: {
     globals: {
       ...globals.browser, // Use when targeting browser

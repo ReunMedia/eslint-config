@@ -7,6 +7,7 @@ import path from "node:path";
 import { createVueConfig } from "./configs/vueConfig.ts";
 import { reunCustomConfig } from "./configs/reunCustomConfig.ts";
 import { createAstroConfig } from "./configs/astroConfig.ts";
+import { type Config } from "eslint/config";
 
 /**
  * Create Reun Media ESLint configuration object
@@ -16,7 +17,7 @@ import { createAstroConfig } from "./configs/astroConfig.ts";
  */
 export default async function createConfig(rootImportMetaUrl: string) {
   // Base configs
-  let configs: Parameters<typeof tseslint.config>[0] = [
+  let configs: Config[] = [
     // ESLint
     eslint.configs.recommended,
     // typescript-eslint

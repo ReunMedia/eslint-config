@@ -1,7 +1,6 @@
-import type { Config, CreateConfig } from "./Config.js";
-import type { Asyncify } from "type-fest";
+import type { Config } from "eslint/config";
 
-export const astroConfig: Config = [
+export const astroConfig: Config[] = [
   {
     files: ["**/*.astro"],
     rules: {
@@ -17,7 +16,7 @@ export const astroConfig: Config = [
   },
 ];
 
-export const createAstroConfig: Asyncify<CreateConfig> = async () => {
+export const createAstroConfig = async (): Promise<Config[]> => {
   try {
     const pluginAstro = await import("eslint-plugin-astro");
     return [...pluginAstro.configs.recommended, ...astroConfig];

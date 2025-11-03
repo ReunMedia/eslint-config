@@ -1,4 +1,4 @@
-import tseslint from "typescript-eslint";
 import createConfig from "./src/index.ts";
+import { defineConfig } from "eslint/config";
 
-export default tseslint.config(await createConfig(import.meta.url));
+export default defineConfig(await createConfig(import.meta.url));

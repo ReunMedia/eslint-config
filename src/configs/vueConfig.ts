@@ -1,7 +1,6 @@
-import type { Config, CreateConfig } from "./Config.js";
-import type { Asyncify } from "type-fest";
+import type { Config } from "eslint/config";
 
-export const vueConfig: Config = [
+export const vueConfig: Config[] = [
   {
     files: ["*.vue", "**/*.vue"],
     languageOptions: {
@@ -10,7 +9,7 @@ export const vueConfig: Config = [
   },
 ];
 
-export const createVueConfig: Asyncify<CreateConfig> = async () => {
+export const createVueConfig = async (): Promise<Config[]> => {
   try {
     const pluginVue = await import("eslint-plugin-vue");
     return [...pluginVue.configs["flat/recommended"], ...vueConfig];

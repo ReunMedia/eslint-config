@@ -4,9 +4,9 @@ import tseslint from "typescript-eslint";
 import { fileURLToPath } from "node:url";
 import { includeIgnoreFile } from "@eslint/compat";
 import path from "node:path";
-import { vueConfig } from "./configs/vueConfig.ts";
+import { createVueConfig } from "./configs/vueConfig.ts";
 import { reunCustomConfig } from "./configs/reunCustomConfig.ts";
-import { astroConfig } from "./configs/astroConfig.ts";
+import { createAstroConfig } from "./configs/astroConfig.ts";
 
 /**
  * Create Reun Media ESLint configuration object
@@ -28,10 +28,10 @@ export default async function createConfig(rootImportMetaUrl: string) {
   // I faintly remember there being some sort of reason why Astro config must
   // specifically be added before Vue, but I'm not sure about it. In any case
   // it's probably best to leave it like this.
-  configs = [...configs, ...(await astroConfig())];
+  configs = [...configs, ...(await createAstroConfig())];
 
   // Vue if installed
-  configs = [...configs, ...(await vueConfig())];
+  configs = [...configs, ...(await createVueConfig())];
 
   // Prettier
   configs = [...configs, eslintConfigPrettier];

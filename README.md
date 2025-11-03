@@ -31,6 +31,12 @@ pnpm add -D eslint-plugin-vue
 pnpm add -D eslint-plugin-astro
 ```
 
+> [!NOTE]
+>
+> Automatic configuration may not always work with transitive dependencies. In
+> this case, you may [import individual configurations
+> manually](#importing-individual-configurations).
+
 ## Usage
 
 ```mjs
@@ -41,6 +47,24 @@ import createReunMediaConfig from "@reunmedia/eslint-config";
 
 export default tseslint.config(await createReunMediaConfig(import.meta.url));
 ```
+
+### Importing individual configurations
+
+For cases where you don't want or cannot use automatic configuration, you may
+import individual configurations manually.
+
+```mjs
+// eslint.config.mjs
+// @ts-check
+import tseslint from "typescript-eslint";
+import { reunCustomConfig, vueConfig } from "@reunmedia/eslint-config";
+
+export default tseslint.config(vueConfig, reunCustomConfig);
+```
+
+Manual import may be needed when working with transitive dependencies. E.g. if
+you're using Nuxt, Vue is installed as a peer dependency and might not get
+detected by automatic configuration.
 
 ## Additional configuration
 

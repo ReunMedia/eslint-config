@@ -11,6 +11,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - Export individual configs separately so that they can be manually imported
+- Allow prefixing unused variables with `_` to ignore errors
+
+### Changed
+
+- Update documentation to use `defineConfig()` instead of deprecated
+  `tseslint.config()`
 
 ## [1.6.0] - 2025-07-10
 

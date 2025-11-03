@@ -56,9 +56,16 @@ import individual configurations manually.
 // eslint.config.mjs
 // @ts-check
 import { defineConfig } from "eslint/config";
+import eslint from "@eslint/js";
+import tseslint from "typescript-eslint";
 import { reunCustomConfig, vueConfig } from "@reunmedia/eslint-config";
 
-export default defineConfig(vueConfig, reunCustomConfig);
+export default defineConfig(
+  eslint.configs.recommended,
+  tseslint.configs.recommended,
+  vueConfig,
+  reunCustomConfig,
+);
 ```
 
 Manual import may be needed when working with transitive dependencies. E.g. if

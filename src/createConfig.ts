@@ -15,6 +15,19 @@ import { type Config } from "eslint/config";
  * @param rootImportMetaUrl Pass `import.meta.url` here. Used to determine
  *                          `.gitignore` location.
  */
+export function useGitignore(rootImportMetaUrl: string): Config {
+  const __filename = fileURLToPath(rootImportMetaUrl);
+  const __dirname = path.dirname(__filename);
+  const gitignorePath = path.resolve(__dirname, ".gitignore");
+  return includeIgnoreFile(path.resolve(gitignorePath));
+}
+
+/**
+ * Create Reun Media ESLint configuration object
+ *
+ * @param rootImportMetaUrl Pass `import.meta.url` here. Used to determine
+ *                          `.gitignore` location.
+ */
 export default async function createConfig(rootImportMetaUrl: string) {
   // Base configs
   let configs: Config[] = [
@@ -41,10 +54,7 @@ export default async function createConfig(rootImportMetaUrl: string) {
   configs = [...configs, ...reunCustomConfig];
 
   // .gitignore
-  const __filename = fileURLToPath(rootImportMetaUrl);
-  const __dirname = path.dirname(__filename);
-  const gitignorePath = path.resolve(__dirname, ".gitignore");
-  configs = [...configs, includeIgnoreFile(path.resolve(gitignorePath))];
+  configs = [...configs, useGitignore(rootImportMetaUrl)];
 
   return configs;
 }

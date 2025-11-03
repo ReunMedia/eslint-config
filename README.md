@@ -43,8 +43,9 @@ pnpm add -D eslint-plugin-astro
 // eslint.config.mjs
 // @ts-check
 import { defineConfig } from "eslint/config";
+import createReunMediaConfig from "@reunmedia/eslint-config";
 
-export default defineConfig(await createConfig(import.meta.url));
+export default defineConfig(await createReunMediaConfig(import.meta.url));
 ```
 
 ### Importing individual configurations
@@ -58,13 +59,18 @@ import individual configurations manually.
 import { defineConfig } from "eslint/config";
 import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
-import { reunCustomConfig, vueConfig } from "@reunmedia/eslint-config";
+import {
+  reunCustomConfig,
+  vueConfig,
+  useGitignore,
+} from "@reunmedia/eslint-config";
 
 export default defineConfig(
   eslint.configs.recommended,
   tseslint.configs.recommended,
   vueConfig,
   reunCustomConfig,
+  useGitignore(import.meta.url),
 );
 ```
 
